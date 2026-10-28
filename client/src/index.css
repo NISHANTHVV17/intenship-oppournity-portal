@@ -1,0 +1,169 @@
+/* ---------- Theme colours ----------
+   We override a few Bootstrap variables so the whole app
+   uses one consistent indigo colour theme. */
+:root {
+  --portal-primary: #4f46e5;
+  --portal-primary-dark: #4338ca;
+  --portal-light: #eef2ff;
+  --bs-primary: #4f46e5;
+  --bs-primary-rgb: 79, 70, 229;
+  --bs-link-color: #4f46e5;
+  --bs-link-hover-color: #4338ca;
+  --bs-link-color-rgb: 79, 70, 229;
+  --bs-body-bg: #f8f9fc;
+}
+
+body {
+  background-color: #f8f9fc;
+  font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif;
+}
+
+/* Make the footer stick to the bottom on short pages */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* Bootstrap's .btn-primary uses its own variables, so set them too */
+.btn-primary {
+  --bs-btn-bg: var(--portal-primary);
+  --bs-btn-border-color: var(--portal-primary);
+  --bs-btn-hover-bg: var(--portal-primary-dark);
+  --bs-btn-hover-border-color: var(--portal-primary-dark);
+  --bs-btn-active-bg: var(--portal-primary-dark);
+  --bs-btn-active-border-color: var(--portal-primary-dark);
+  --bs-btn-disabled-bg: var(--portal-primary);
+  --bs-btn-disabled-border-color: var(--portal-primary);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--portal-primary);
+  --bs-btn-border-color: var(--portal-primary);
+  --bs-btn-hover-bg: var(--portal-primary);
+  --bs-btn-hover-border-color: var(--portal-primary);
+  --bs-btn-active-bg: var(--portal-primary-dark);
+  --bs-btn-active-border-color: var(--portal-primary-dark);
+}
+
+.bg-primary {
+  background-color: var(--portal-primary) !important;
+}
+
+.text-primary {
+  color: var(--portal-primary) !important;
+}
+
+.navbar-brand {
+  font-weight: 700;
+}
+
+/* ---------- Hero section on the Home page ---------- */
+.hero {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  color: #fff;
+  padding: 5rem 0;
+}
+
+.hero h1 {
+  font-weight: 800;
+}
+
+/* ---------- Cards ---------- */
+.card {
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.internship-card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.internship-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.15);
+}
+
+.stat-card .stat-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.step-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--portal-light);
+  color: var(--portal-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+}
+
+.company-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--portal-light);
+  color: var(--portal-primary);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.skill-badge {
+  background: var(--portal-light);
+  color: var(--portal-primary);
+  font-weight: 500;
+}
+
+/* ---------- Tables ---------- */
+.table > :not(caption) > * > * {
+  padding: 0.75rem;
+}
+
+.table td,
+.table th {
+  vertical-align: middle;
+}
+
+/* ---------- Toast notifications ---------- */
+.toast-stack {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2000;
+  width: min(360px, calc(100vw - 2rem));
+}
+
+/* Simple modal backdrop (we control modals with React state) */
+.modal-backdrop-custom {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1050;
+}
+
+.modal.d-block {
+  z-index: 1055;
+}
+
+.cover-letter-text {
+  white-space: pre-wrap;
+  background: #f8f9fa;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
